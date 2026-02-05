@@ -4,6 +4,7 @@
   </h1>
 
   <div class="headline">
+    {{ if not .Params.disableHeadline }}
     <div>
       {{ with .Params.author }}
         {{ with site.Taxonomies.author.Get . }}
@@ -27,6 +28,7 @@
 
         <span>{{ .ReadingTime }} {{ .Scratch.Get "readingTime" }} read</span>
       </span>
+      {{end}}
     </div>
 
     {{ if .Params.tags }}
